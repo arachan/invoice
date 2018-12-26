@@ -1,0 +1,49 @@
+= Invoice to use powershell and LibreOffice draw
+
+I hate Excel Reports template.
+It's too complicated.
+
+I recommend LibreOffice Draw, if you make reports template to use Ofice Suite.
+So, I make invoice report template.
+
+== Environment
+
+- Windows10 Pro
+    - PowerShell
+- LibreOffice Draw
+    - Flat OpenDocument Graphic(fodg)
+
+== How to use
+
+1. make data.csv
+2. run makeinvoice.ps1 and make invoice output folder.
+3. run print.ps1 and print invoice to default printer.
+
+data.csv is 9 rows.
+It is made 2 invoices.
+Paging is perfect.
+
+== How to make
+
+make template
+1. make template to use LibreOffice Draw.
+2. add TextBox {salesno},{customer},{supplier},{item1} - {item6},{subtotal1} - {subtotal1}.
+
+This template 6 rows.
+
+make data.csv
+1. write header salesno,customer,supplier,item,subtotal.
+2. write invoice data.
+
+make makeinvoice.ps1
+1. load data.csv
+2. loda template
+3. replace {salesno},{item1}
+4. 6rows full output invoice
+5. output remainder data to invoice report.
+6. delete {item5},{item6}... etc.
+7. output last invoice report.
+
+make print.ps1
+1. get invoice list from output folder.
+2. print to default printer and delete invoice report.
