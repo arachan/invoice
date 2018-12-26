@@ -52,18 +52,15 @@ foreach($d in $data){
 
         # output newfile
         $temp | out-file -FilePath $file'.fodg' -Encoding utf8
-        echo "1ページ目"
+        
         $i=$i-$rprow
-        echo $i
+        
         # load template
         $temp=Get-Content .\invoice.fodg -Encoding UTF8
     }
     
     # report in row
-    $i=$i+1
-    echo $i
-    #echo $rc
-    
+    $i=$i+1    
 }
 
 # output remainder data to report
