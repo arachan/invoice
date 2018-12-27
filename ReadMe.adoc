@@ -1,12 +1,21 @@
 = Invoice to use powershell and LibreOffice draw
 
-I hate Excel Reports template.
-
-It's too complicated.
-
 I recommend LibreOffice Draw, if you make reports template to use Ofice Suite.
 
 So, I make invoice report template.
+
+invoice report is most use in ERP,CRM,any other bussiness system software.
+
+Especially,pagenation is very difficult.
+
+To make pagenation,we can make any other reports.
+
+*Condition*
+
+1. invoice report in 6 rows
+2. 9 rows sales data
+3. 2 page invoice reports
+4. last page in last rows add sales total.
 
 == Environment
 
@@ -22,10 +31,6 @@ So, I make invoice report template.
 3. run print.ps1 and print invoice to default printer.
 
 data.csv is 9 rows.
-
-It is made 2 invoices.
-
-Paging is perfect.
 
 == How to make
 
