@@ -6,12 +6,16 @@ $temp=Get-Content .\invoice.fodg -Encoding UTF8
 
 # cnt row in report
 $i=1
-# page
-$p=0
 # reportrows
 $rprow=6
 # total row count
 $rc=0
+# page
+$p=0
+
+# total page
+$tp=$data.Count/$rprow
+$tp=[Math]::Ceiling($tp)
 
 # calcurate total
 $sum=$data | Measure-Object 'subtotal' -sum
@@ -42,7 +46,9 @@ foreach($d in $data){
         }
 
         # add Page No
-        $temp=$temp -replace '{page}',"-$p"
+        $temp=$temp -replace '{page}',"$p"
+        # add Total Page
+        $temp=$temp -replace '{total page}',"$tp"
         # delete {}
         $temp=$temp -replace "{(.*)}",""
 
@@ -70,7 +76,8 @@ if($data.Count%$rprow -ne 0){
 
     # write total
     $temp=$temp -replace '{total}',$sum.Sum
-    $temp=$temp -replace '{page}',"-$p"
+    $temp=$temp -replace '{page}',"$p"
+    $temp=$temp -replace '{total page}',"$tp"
     
     # delete {}
     $temp=$temp -replace "{(.*)}","" 
