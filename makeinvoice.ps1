@@ -12,6 +12,8 @@ $rprow=6
 $rc=0
 # page
 $p=0
+# value added tax
+$vat=0.08
 
 # total page
 $tp=$data.Count/$rprow
@@ -75,7 +77,9 @@ if($data.Count%$rprow -ne 0){
     $file="output\"+$date+$p
 
     # write total
-    $temp=$temp -replace '{total}',$sum.Sum
+    $temp=$temp -replace '{sum}',$sum.Sum
+    $temp=$temp -replace '{vat}',($sum.Sum*$vat)
+    $temp=$temp -replace '{total}',($sum.Sum+$sum.Sum*$vat)
     $temp=$temp -replace '{page}',"$p"
     $temp=$temp -replace '{total page}',"$tp"
     
