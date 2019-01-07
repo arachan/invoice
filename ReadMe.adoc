@@ -32,6 +32,12 @@ To make pagenation,we can make any other reports.
 
 data.csv is 9 rows.
 
+[format="csv", options="header"]
+|===
+include::data.csv[]
+|===
+
+
 == How to make
 
 make template
